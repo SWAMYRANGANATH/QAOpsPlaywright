@@ -17,8 +17,14 @@ jobs:
       run: npm ci
     - name: Install Playwright
       run: npx playwright install --with-deps
+      name: Azure Login
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZURE_CREDENTIALS }} 
+      env:
+      
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test -c playwright.service.config.js --workers=2
     - uses: actions/upload-artifact@v2
       if: always()
       with:
