@@ -22,7 +22,7 @@ jobs:
       with:
         client-id: ${{ secrets.AZURE_CREDENTIALS }} 
       env:
-      
+      PLAYWRIGHT_SERVICE_URL : ${{ vars.PLAYWRIGHT_SERVICE_UR }}
     - name: Run Playwright tests
       run: npx playwright test -c playwright.service.config.js --workers=2
     - uses: actions/upload-artifact@v2
