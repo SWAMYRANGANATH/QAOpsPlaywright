@@ -7,7 +7,8 @@ on:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    # CHANGED: Runs on a hosted Windows virtual machine instead of Linux
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v5
     - uses: actions/setup-node@v5
